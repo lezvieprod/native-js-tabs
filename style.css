@@ -1,0 +1,71 @@
+body {
+    background-color: rosybrown;
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+        "Helvetica Neue", sans-serif;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+.layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.tabs {
+    max-width: 400px;
+    width: 100%;
+    min-width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+.tabs-header {
+    display: flex;
+    margin-bottom: 10px;
+}
+.tabs-header > div {
+    cursor: pointer;
+    flex: 1 0;
+    text-align: center;
+    transition: color .35s ease-in-out;
+}
+.tab-line {
+    width: calc(100% / 3);
+    height: 2px;
+    background-color: royalblue;
+    left: 0px;
+    position: relative;
+    transition: left .35s ease-in-out;
+}
+
+.tabs-header > div.active {
+    color: royalblue;
+}
+.tabs-body {
+    position: relative;
+    min-height: 200px;
+    margin-top: 10px;
+}
+.tabs-body > div {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.35s ease-in-out;
+    position: absolute;
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transform: scale(0.9);
+    will-change: transform;
+}
+.tabs-body > div.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}

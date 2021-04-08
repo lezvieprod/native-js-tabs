@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabs js</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="layout">
+    <div class="tabs">
+      <div class="tabs-header">
+        <div class="active">
+          Tab lorem 1
+        </div>
+        <div>
+          Tab lorem 2
+        </div>
+        <div>
+          Tab lorem 3
+        </div>
+      </div>
+      <div class="tab-line"></div>
+      <div class="tabs-body">
+        <div class="active">
+          <span>
+            Lorem 1, ipsum dolor sit amet consectetur adipisicing elit. Officiis reiciendis commodi, quam sunt dolores itaque vitae incidunt minus corporis eaque! Esse eum eveniet sint nostrum culpa itaque autem vel laborum.
+          </span>
+        </div>
+        <div>
+          <span>
+            Lorem 2, ipsum dolor sit amet consectetur adipisicing elit. Officiis reiciendis commodi, quam sunt dolores itaque vitae incidunt minus corporis eaque! Esse eum eveniet sint nostrum culpa itaque autem vel laborum.
+            Lorem 2, ipsum dolor sit amet consectetur adipisicing elit. Officiis reiciendis commodi, quam sunt dolores itaque vitae incidunt minus corporis eaque! Esse eum eveniet sint nostrum culpa itaque autem vel laborum.
+          </span>
+        </div>
+        <div>
+          <span>
+            Lorem 3, ipsum dolor sit amet consectetur adipisicing elit. Officiis reiciendis commodi, quam sunt dolores itaque vitae incidunt minus corporis eaque! Esse eum eveniet sint nostrum culpa itaque autem vel laborum.
+            Lorem 3, ipsum dolor sit amet consectetur adipisicing elit. Officiis reiciendis commodi, quam sunt dolores itaque vitae incidunt minus corporis eaque! Esse eum eveniet sint nostrum culpa itaque autem vel laborum.
+            Lorem 3, ipsum dolor sit amet consectetur adipisicing elit. Officiis reiciendis commodi, quam sunt dolores itaque vitae incidunt minus corporis eaque! Esse eum eveniet sint nostrum culpa itaque autem vel laborum.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+
+    let tabsHeader = document.getElementsByClassName('tabs-header')[0];
+    let tabsHeaderItem = tabsHeader.getElementsByTagName('div');
+
+    let tabsBody = document.getElementsByClassName('tabs-body')[0];
+    let tabsBodyItem = tabsBody.getElementsByTagName('div');
+
+    let tabLine = document.getElementsByClassName('tab-line')[0];
+
+    for (let i = 0; i < tabsHeaderItem.length; i++) {
+      tabsHeaderItem[i].addEventListener('click', function () {
+        tabsHeader.getElementsByClassName('active')[0].classList.remove('active');
+        tabsHeaderItem[i].classList.add('active');
+
+        tabsBody.getElementsByClassName('active')[0].classList.remove('active')
+        tabsBodyItem[i].classList.add('active');
+
+        tabLine.style.left = `calc(calc(100% / ${tabsHeaderItem.length}) * ${i})`
+      })
+    }
+
+  </script>
+
+</body>
+
+</html>
